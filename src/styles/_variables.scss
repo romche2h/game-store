@@ -1,0 +1,28 @@
+$color-green-light: rgb(97, 165, 104);
+$color-green-dark: rgb(66, 88, 68);
+
+$color-blue-dark: rgb(16, 29, 44);
+
+$color-grey-dark: rgb(170, 170, 170);
+$color-grey-light: rgb(245, 245, 245);
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: $color-grey-light;
+  line-height: 113%;
+  font-size: 1.6rem;
+  color: red;
+}
