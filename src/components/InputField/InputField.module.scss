@@ -3,23 +3,23 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-}
 
-.inputWrapper {
-  position: relative;
-}
+  .inputWrapper {
+    position: relative;
 
-.inputpass {
-  padding-right: 4rem;
-  font-size: 1.7rem;
-  font-weight: 400;
-  color: black;
-  border: 0.1rem solid #eee;
-  box-shadow: 1.5rem 2rem 4.5rem 0rem rgba(233, 233, 233, 0.25);
-  border-radius: 1rem;
-  padding: 2rem;
-}
+    .inputpass {
+      padding-right: 4rem;
+      font-size: 1.7rem;
+      font-weight: 400;
+      color: black;
+      border: 0.1rem solid #eee;
+      box-shadow: 1.5rem 2rem 4.5rem 0rem rgba(233, 233, 233, 0.25);
+      border-radius: 1rem;
+      padding: 2rem;
+    }
 
-input::placeholder {
-  color: #c4c4c4;
+    input::placeholder {
+      color: #c4c4c4;
+    }
+  }
 }

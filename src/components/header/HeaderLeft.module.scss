@@ -9,45 +9,45 @@
   align-items: center;
   flex-direction: column;
   position: relative;
-}
 
-.content {
-  margin-top: 24rem;
-}
+  .logo {
+    position: absolute;
+    top: 0rem;
+    width: 12rem;
+  }
 
-.logo {
-  position: absolute;
-  top: 0rem;
-  width: 12rem;
-}
+  .content {
+    margin-top: 24rem;
 
-.about {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  color: rgb(170, 170, 170);
-  font-weight: 700;
-  line-height: 2rem;
-  margin-top: 16rem;
-}
+    .about {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      color: rgb(170, 170, 170);
+      font-weight: 700;
+      line-height: 2rem;
+      margin-top: 16rem;
+    }
 
-.about::before,
-.about::after {
-  content: '';
-  flex: 1;
-  flex-grow: 1;
-  height: 1px;
-  background: $color-grey-dark;
-}
+    .gameImg {
+      display: flex;
+      gap: 10rem;
+      margin-top: 1.3rem;
+      justify-content: center;
+    }
 
-.gameImg {
-  display: flex;
-  gap: 10rem;
-  margin-top: 1.3rem;
-  justify-content: center;
-}
+    .img {
+      height: 3rem;
+      object-fit: contain;
+    }
 
-.img {
-  height: 3rem;
-  object-fit: contain;
+    .about::before,
+    .about::after {
+      content: '';
+      flex: 1;
+      flex-grow: 1;
+      height: 1px;
+      background: $color-grey-dark;
+    }
+  }
 }

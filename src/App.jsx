@@ -1,14 +1,14 @@
 import './App.scss';
 import './styles/_variables.scss';
 import About from './components/About/About';
-import BestText from './components/section-best-place/BestText';
+import BestText from './components/BestPlace/BestText';
 import Footer from './components/footer/Footer';
-import BestImg from './components/section-best-place/BestImg';
-import Gallery from './components/section-gallery/Gallery';
-import HeaderLeft from './components/header/HeaderLeft';
-import HeaderRight from './components/header/HeaderRight';
-import { Outlet } from 'react-router-dom';
+import BestImg from './components/BestPlace/BestImg';
+import Gallery from './components/Gallery/Gallery';
+import HeaderLeft from './components/Header/HeaderLeft';
+import HeaderRight from './components/Header/HeaderRight';
 import SideBar from './components/SideBar/SideBar';
+import { Outlet } from 'react-router-dom';
 
 function App() {
   return (

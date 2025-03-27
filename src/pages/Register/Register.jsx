@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './Register.module.scss';
 import Button from '../../components/Button/Button';
-import BackgroundVideo from '../../components/BackgroundVideo/BackgroundVideo';
+import BackgroundVideoAuth from '../../components/BackgroundVideoAuth/BackgroundVideo';
 import InputField from '../../components/InputField/InputField';
 import { Link } from 'react-router-dom';
 
@@ -22,7 +22,7 @@ function Register() {
           <use href='src/icons/symbol.svg#icon-gaming'></use>
         </svg>
       </Link>
-      <BackgroundVideo
+      <BackgroundVideoAuth
         className={styles.background}
         sources={['/videoReister.mp4', '/videoReister.webm']}
       />

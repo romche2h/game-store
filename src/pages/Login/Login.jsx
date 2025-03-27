@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './Login.module.scss';
 import Button from '../../components/Button/Button';
 import InputField from '../../components/InputField/InputField';
-import BackgroundVideo from '../../components/BackgroundVideo/BackgroundVideo';
+import BackgroundVideoAuth from '../../components/BackgroundVideoAuth/BackgroundVideo';
 import { Link } from 'react-router-dom';
 
 function Login() {
@@ -22,7 +22,7 @@ function Login() {
           <use href='src/icons/symbol.svg#icon-gaming'></use>
         </svg>
       </Link>
-      <BackgroundVideo
+      <BackgroundVideoAuth
         className={styles.background}
         sources={['videoLogin.mp4', 'videoLogin.webm']}
       />

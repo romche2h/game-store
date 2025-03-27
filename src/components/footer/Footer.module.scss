@@ -8,26 +8,27 @@
   position: relative;
   padding: 2vw;
   width: 100%;
-}
-.logo {
-  width: 12rem;
-}
-.list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 3.4vw;
-  width: 100%;
-  list-style: none;
-  text-decoration: none;
-  padding-bottom: 8vh;
-}
+  .logo {
+    width: 12rem;
+  }
 
-.link {
-  text-decoration: none;
-  color: $color-grey-light;
-  font-weight: 300;
-  line-height: 2rem;
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3.4vw;
+    width: 100%;
+    list-style: none;
+    text-decoration: none;
+    padding-bottom: 8vh;
+
+    .link {
+      text-decoration: none;
+      color: $color-grey-light;
+      font-weight: 300;
+      line-height: 2rem;
+    }
+  }
 }
 
 //это на грид

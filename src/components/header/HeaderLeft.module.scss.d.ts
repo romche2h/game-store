@@ -4,8 +4,8 @@ declare const classNames: {
   readonly titleTwo: "titleTwo";
   readonly titleThree: "titleThree";
   readonly header_left: "header_left";
-  readonly content: "content";
   readonly logo: "logo";
+  readonly content: "content";
   readonly about: "about";
   readonly gameImg: "gameImg";
   readonly img: "img";

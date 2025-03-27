@@ -6,8 +6,8 @@ declare const classNames: {
   readonly sidebar: "sidebar";
   readonly hamburger: "hamburger";
   readonly menu: "menu";
+  readonly menuActive: "menuActive";
   readonly menuContent: "menuContent";
   readonly link: "link";
-  readonly menuActive: "menuActive";
 };
 export = classNames;

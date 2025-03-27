@@ -1,0 +1,21 @@
+@use '../../styles/variables.scss' as *;
+
+.container {
+  display: grid;
+  grid-column: 7 / -1;
+  background: $color-blue-dark;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 16vh 8vw;
+    gap: 3rem;
+  }
+
+  .description {
+    margin: 3rem 0 4rem;
+    color: $color-grey-light;
+  }
+}

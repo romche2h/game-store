@@ -4,7 +4,7 @@ function BackgroundVideo({ sources, className }) {
   return (
     <video className={className} autoPlay muted loop>
       {sources.map((src, index) => (
-        <source key={index} src={src} />
+        <source src={src} key={index} />
       ))}
     </video>
   );
