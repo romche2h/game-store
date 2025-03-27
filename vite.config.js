@@ -12,7 +12,7 @@ export default defineConfig({
   ],
   css: {
     preprocessorOptions: {
-      sass: {
+      scss: {
         quietDeps: true,
       },
     },

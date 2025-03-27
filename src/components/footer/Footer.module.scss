@@ -1,0 +1,69 @@
+@use '../../styles/variables.scss' as *;
+.footer {
+  background-color: $color-blue-dark;
+  grid-column: 2 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 2vw;
+  width: 100%;
+}
+.logo {
+  width: 12rem;
+}
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3.4vw;
+  width: 100%;
+  list-style: none;
+  text-decoration: none;
+  padding-bottom: 8vh;
+}
+
+.link {
+  text-decoration: none;
+  color: $color-grey-light;
+  font-weight: 300;
+  line-height: 2rem;
+}
+
+//это на грид
+// .footer {
+//   background-color: $color-blue-dark;
+//   grid-column: 2 / -1;
+//   display: grid;
+//   grid-template-rows: auto auto; // Две строки: одна для лого, вторая для списка
+//   justify-items: center; // Центрируем контент
+//   align-items: center;
+//   padding: 2vw;
+//   width: 100%;
+// }
+
+// .logo {
+//   width: 12rem;
+// }
+
+// .list {
+//   display: grid;
+//   grid-template-columns: repeat(
+//     auto-fit,
+//     minmax(150px, 1fr)
+//   ); // Гибкое количество колонок
+//   gap: 2vw;
+//   width: 100%;
+//   list-style: none;
+//   text-decoration: none;
+//   padding-bottom: 8vh;
+//   justify-content: center;
+// }
+
+// .link {
+//   text-decoration: none;
+//   color: $color-grey-light;
+//   font-weight: 300;
+//   line-height: 2rem;
+//   text-align: center;
+// }

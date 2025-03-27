@@ -1,0 +1,17 @@
+@use '../../styles/variables.scss' as *;
+.button {
+  background: $color-green-light;
+  font-family: Montserrat;
+  text-transform: uppercase;
+  padding: 1.5rem 3rem;
+  color: $color-grey-light;
+  font-weight: 700;
+  line-height: 2rem;
+  font-size: 1.6rem;
+  border: none;
+  border-radius: 30rem;
+  &:hover {
+    background: $color-green-dark;
+    cursor: pointer;
+  }
+}

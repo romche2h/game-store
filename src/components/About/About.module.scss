@@ -1,0 +1,30 @@
+@use '../../styles/variables.scss' as *;
+
+.abouts {
+  padding: 15rem 0;
+  background-color: $color-grey-light;
+  display: grid;
+  grid-column: 3 / 11;
+  grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
+  gap: 4rem 3rem;
+}
+
+.about {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-gap: 1.5rem 2.5rem;
+  &__text {
+    color: $color-green-dark;
+    font-family: Montserrat;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 113%;
+    letter-spacing: 0%;
+  }
+  &__icon {
+    width: 4.5rem;
+    height: 4.5rem;
+    grid-row: 1 / span 2;
+    transform: translateY(-2rem);
+  }
+}

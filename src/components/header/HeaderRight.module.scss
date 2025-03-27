@@ -1,0 +1,35 @@
+@use '../../styles/variables.scss' as *;
+
+.gamersList {
+  background-color: $color-blue-dark;
+  grid-column: 9 / -1;
+  padding: 175px 55px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4rem;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.3rem;
+}
+
+.avatar {
+  width: 10rem;
+}
+
+.name {
+  color: $color-grey-light;
+  font-size: 1.9rem;
+  font-weight: 700;
+}
+
+.score {
+  color: $color-grey-dark;
+  font-size: 1.6rem;
+  font-weight: 300;
+  line-height: 2rem;
+}

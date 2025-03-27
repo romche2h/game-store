@@ -1,50 +1,15 @@
 @use './styles/_variables.scss' as *;
+
 .container {
   display: grid;
-  grid-template-rows: 80vh min-content 40vh repeat(3, min-content);
+  grid-template-rows: 80rem min-content max-content repeat(3, min-content);
   grid-template-columns:
     8rem minmax(6rem, 1fr) repeat(8, minmax(min-content, 14rem))
     minmax(6rem, 1fr);
-}
-.sidebar {
-  background-color: $color-green-dark;
-  grid-column: 1 / 2;
-  grid-row: 1 / -1;
-}
-.header {
-  &_left {
-    background-color: $color-blue-dark;
-    grid-column: 2 / 8;
-  }
-  &_right {
-    background-color: $color-blue-dark;
-    grid-column: 8 / -1;
-  }
-}
-.about {
-  background-color: blue;
-  grid-column: 3 / 11;
-}
-.place {
-  &_img {
-    background-color: $color-blue-dark;
-    grid-column: 2 / 7;
-  }
-  &_text {
-    background-color: $color-blue-dark;
-    grid-column: 7 / -1;
-  }
+  background-color: $color-grey-light;
 }
 
 .platform {
   background-color: $color-green-light;
   grid-column: 3 / 11;
-}
-.gallery {
-  background-color: $color-blue-dark;
-  grid-column: 2 / 12;
-}
-.footer {
-  background-color: $color-blue-dark;
-  grid-column: 2 / 12;
 }

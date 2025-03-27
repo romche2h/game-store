@@ -1,0 +1,70 @@
+@use '../../styles/variables.scss' as *;
+
+.sidebar {
+  background-color: $color-green-dark;
+  grid-column: 1 / 2;
+  grid-row: 1 / -1;
+  padding-top: 3.7rem;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.hamburger {
+  background-color: $color-grey-light;
+  height: 0.2rem;
+  width: 4.5rem;
+  position: relative;
+  cursor: pointer;
+
+  &::after,
+  &::before {
+    content: '';
+    background-color: $color-grey-light;
+    height: 0.2rem;
+    width: 4.5rem;
+    display: block;
+    position: absolute;
+  }
+
+  &::after {
+    transform: translateY(-1.5rem);
+  }
+
+  &::before {
+    transform: translateY(1.5rem);
+  }
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: $color-green-dark;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  transition: left 0.5s ease-in-out;
+}
+
+.menuContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: white;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.link {
+  text-decoration: none;
+  font-size: 2.5rem;
+  color: $color-grey-light;
+}
+
+.menuActive {
+  left: 0;
+}
