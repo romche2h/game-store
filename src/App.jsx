@@ -8,6 +8,7 @@ import Gallery from './components/Gallery/Gallery';
 import HeaderLeft from './components/Header/HeaderLeft';
 import HeaderRight from './components/Header/HeaderRight';
 import SideBar from './components/SideBar/SideBar';
+import Platform from './components/Platform/Platform';
 import { Outlet } from 'react-router-dom';
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
         <About />
         <BestImg />
         <BestText />
-        <div className='platform'>platform</div>
+        <Platform />
         <Gallery />
         <Footer />
         <Outlet />

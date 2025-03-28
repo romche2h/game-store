@@ -1,8 +1,16 @@
-import React, { children } from 'react';
+import React from 'react';
 import styles from './Button.module.scss';
 
-function Button({ children }) {
-  return <button className={styles.button}>{children}</button>;
+function Button({ children, onClick, className, ...props }) {
+  return (
+    <button
+      onClick={onClick}
+      className={`${styles.button} ${className || ''}`}
+      {...props}
+    >
+      {children}
+    </button>
+  );
 }
 
 export default Button;

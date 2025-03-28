@@ -10,6 +10,15 @@ const gameImages = [
 ];
 
 function HeaderLeft() {
+  const scrollToPlatform = () => {
+    const section = document.getElementById('platform-section');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      console.log('Элемент с id="platform-section" не найден');
+    }
+  };
+
   return (
     <header className={styles.header_left}>
       <svg className={styles.logo}>
@@ -18,7 +27,7 @@ function HeaderLeft() {
       <div className={styles.content}>
         <div className={styles.titleThree}>ТВОЯ ИГРОВАЯ СТАНЦИЯ</div>
         <div className={styles.titleOne}>Погрузись в мир современных игр</div>
-        <Button>ВЫБРАТЬ ПЛАТФОРМУ</Button>
+        <Button onClick={scrollToPlatform}>ВЫБРАТЬ ПЛАТФОРМУ</Button>
         <div className={styles.about}>О нас</div>
         <div className={styles.gameImg}>
           {gameImages.map((image, index) => (
