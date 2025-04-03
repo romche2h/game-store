@@ -9,6 +9,7 @@ function InputField({
   value,
   onChange,
   children,
+  autoFocus,
 }) {
   return (
     <div className={styles.field}>
@@ -22,6 +23,7 @@ function InputField({
           className={styles.inputpass}
           onChange={onChange}
           value={value}
+          autoFocus={autoFocus}
         />
         {children}
       </div>

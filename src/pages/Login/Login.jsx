@@ -28,6 +28,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setMessage('');
     if (!form.email || !form.password) {
       setMessage('Введите Логин и пароль');
       setLoading(false);
@@ -71,6 +72,7 @@ function Login() {
           value={form.email}
           onChange={handleChange}
           placeholder='Email'
+          autoFocus
         />
         <InputField
           id='password'
@@ -88,9 +90,7 @@ function Login() {
             onClick={toggleShowPass}
           />
         </InputField>
-        <Button appearance='big' disabled={loading}>
-          {loading ? 'Загрузка...' : 'Вход'}
-        </Button>
+        <Button disabled={loading}>{loading ? 'Загрузка...' : 'Вход'}</Button>
       </form>
       {message && <div>{message}</div>}
       <div className={styles.links}>

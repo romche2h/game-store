@@ -25,6 +25,7 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setMessage('');
     console.log('Отправляем на сервер:', form);
 
     if (!form.username || !form.email || !form.password) {
@@ -77,6 +78,7 @@ function Register() {
           label='Ваш email'
           placeholder='Email'
           className={styles.inputpass}
+          autoFocus
         />
         <InputField
           id='password'
@@ -104,7 +106,9 @@ function Register() {
           className={styles.inputpass}
           onChange={handleChange}
         />
-        <Button appearance='big'>Зарегистрироваться</Button>
+        <Button disabled={loading}>
+          {loading ? 'Загрузка...' : 'Зарегистрироваться'}
+        </Button>
       </form>
       {message && <div className={styles.errorMessage}>{message}</div>}
       <div className={styles.links}>
