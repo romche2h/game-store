@@ -47,7 +47,7 @@ function Register() {
       setMessage(response.data.message);
       setForm({ username: '', email: '', password: '' });
       console.log('Ответ от сервера:', response.data);
-      setTimeout(() => navigate('/login'), 4000);
+      navigate('/login');
     } catch (error) {
       console.error('Ошибка запроса:', error.response || error.message);
       setMessage(error.response?.data?.error || 'Ошибка регистрации!');

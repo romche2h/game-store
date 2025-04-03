@@ -44,7 +44,7 @@ function Login() {
       }
       setMessage(response.data.message);
       setForm({ email: '', password: '' });
-      setTimeout(() => navigate('/'), 6000);
+      navigate('/');
     } catch (error) {
       setMessage(error.response?.data?.error || 'ошибка(test)');
     } finally {

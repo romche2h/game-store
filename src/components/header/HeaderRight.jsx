@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './HeaderRight.module.scss';
+import ExitButton from '../ExitButton/ExitButton.jsx';
 
 const players = [
   {
@@ -24,22 +25,25 @@ const players = [
 
 function HeaderRight() {
   return (
-    <div className={styles.gamersList}>
-      <div className={styles.titleFour}>TOP 3 PLAYERS</div>
-      {players.map((player) => (
-        <div key={player.id} className={styles.container}>
-          <img
-            src={player.avatar}
-            alt={`foto ${player.name}`}
-            className={styles.avatar}
-          />
-          <div className={styles.info}>
-            <div className={styles.name}>{player.name}</div>
-            <div className={styles.score}>{player.score}</div>
+    <>
+      <div className={styles.gamersList}>
+        <ExitButton />
+        <div className={styles.titleFour}>TOP 3 PLAYERS</div>
+        {players.map((player) => (
+          <div key={player.id} className={styles.container}>
+            <img
+              src={player.avatar}
+              alt={`foto ${player.name}`}
+              className={styles.avatar}
+            />
+            <div className={styles.info}>
+              <div className={styles.name}>{player.name}</div>
+              <div className={styles.score}>{player.score}</div>
+            </div>
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+    </>
   );
 }
 

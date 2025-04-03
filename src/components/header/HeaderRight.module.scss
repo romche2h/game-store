@@ -9,6 +9,12 @@
   justify-content: center;
   gap: 4rem;
 
+  .exit {
+    display: flex;
+    justify-content: end;
+    transform: translateY(-88px);
+  }
+
   .container {
     display: flex;
     justify-content: center;
