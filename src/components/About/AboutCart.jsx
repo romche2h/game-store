@@ -7,7 +7,7 @@ function AboutCard({ icon, title, text }) {
       <svg className={styles.about__icon}>
         <use xlinkHref={`src/icons/symbol.svg#${icon}`}></use>
       </svg>
-      <div className={styles.titleFour}>{title}</div>
+      <div className={styles.title}>{title}</div>
       <p className={styles.about__text}>{text}</p>
     </div>
   );

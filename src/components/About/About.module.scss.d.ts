@@ -7,5 +7,6 @@ declare const classNames: {
   readonly about: "about";
   readonly about__text: "about__text";
   readonly about__icon: "about__icon";
+  readonly title: "title";
 };
 export = classNames;
