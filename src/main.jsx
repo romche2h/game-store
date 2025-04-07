@@ -5,6 +5,8 @@ import App from './App.jsx';
 import Login from './pages/Login/Login.jsx';
 import Register from './pages/Register/Register.jsx';
 import SteamSuccess from './pages/SteamSuccess/SteamSuccess.jsx';
+import RedirectIfAuthenticated from './components/RedirectIfAuthenticated/RedirectIfAuthenticated.jsx';
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -13,11 +15,19 @@ const router = createBrowserRouter([
   },
   {
     path: 'login',
-    element: <Login />,
+    element: (
+      <RedirectIfAuthenticated>
+        <Login />
+      </RedirectIfAuthenticated>
+    ),
   },
   {
     path: '/register',
-    element: <Register />,
+    element: (
+      <RedirectIfAuthenticated>
+        <Register />
+      </RedirectIfAuthenticated>
+    ),
   },
   {
     path: '/steam-success',

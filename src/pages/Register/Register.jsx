@@ -110,6 +110,13 @@ function Register() {
           {loading ? 'Загрузка...' : 'Зарегистрироваться'}
         </Button>
       </form>
+      <Button
+        onClick={() =>
+          (window.location.href = 'http://localhost:5000/auth/steam')
+        }
+      >
+        Есть steam?
+      </Button>
       {message && <div className={styles.errorMessage}>{message}</div>}
       <div className={styles.links}>
         <p>Есть аккаунт?</p>
