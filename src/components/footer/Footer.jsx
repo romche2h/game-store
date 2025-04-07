@@ -2,6 +2,15 @@ import React from 'react';
 import styles from './Footer.module.scss';
 
 function Footer() {
+  const scrollToPlatform = () => {
+    const section = document.getElementById('platform-section');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      console.log('Элемент с id="platform-section" не найден');
+    }
+  };
+
   return (
     <footer className={styles.footer}>
       <svg className={styles.logo}>
@@ -9,7 +18,7 @@ function Footer() {
       </svg>
       <ul className={styles.list}>
         <li className={styles.item}>
-          <a className={styles.link} href='#'>
+          <a className={styles.link} onClick={scrollToPlatform}>
             АРЕНДА КОНСОЛЕЙ
           </a>
         </li>
