@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from './Login.module.scss';
 import Button from '../../components/Button/Button';
 import InputField from '../../components/InputField/InputField';
 import BackgroundVideoAuth from '../../components/BackgroundVideoAuth/BackgroundVideo';
-import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function Login() {
@@ -11,6 +11,8 @@ function Login() {
   const [form, setForm] = useState({ email: '', password: '' });
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
+  const [isSteamLogin, setIsSteamLogin] = useState(false);
+  const navigate = useNavigate();
 
   const icons = {
     show: 'src/icons/showpass.svg',
@@ -23,7 +25,20 @@ function Login() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const navigate = useNavigate();
+  const handleSteamLogin = () => {
+    const url = new URL(window.location.href);
+    const token = url.searchParams.get('token');
+    if (token) {
+      localStorage.setItem('token', token);
+      navigate('/');
+    } else {
+      setIsSteamLogin(true);
+    }
+  };
+
+  useEffect(() => {
+    handleSteamLogin();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -46,7 +61,7 @@ function Login() {
       setForm({ email: '', password: '' });
       navigate('/');
     } catch (error) {
-      setMessage(error.response?.data?.error || 'ошибка(test)');
+      setMessage(error.response?.data?.error || 'Ошибка');
     } finally {
       setLoading(false);
     }
@@ -92,7 +107,14 @@ function Login() {
         </InputField>
         <Button disabled={loading}>{loading ? 'Загрузка...' : 'Вход'}</Button>
       </form>
-      {message && <div>{message}</div>}
+      <Button
+        onClick={() =>
+          (window.location.href = 'http://localhost:5000/auth/steam')
+        }
+      >
+        Войти при помощи Steam
+      </Button>
+      {isSteamLogin && message && <div>{message}</div>}
       <div className={styles.links}>
         <p>Нет аккаунта?</p>
         <Link to='/register' className={styles.link}>
