@@ -14,9 +14,9 @@ function NotFound() {
     <div className={styles.notFoundPage}>
       <div className={styles.content}>
         <div className={styles.errorCode}>404</div>
-        <div className={styles.errorMessage}>Страница не найдена</div>
+        <div className={styles.errorMessage}>Страница не найдена.</div>
         <div className={styles.errorDescription}>
-          Запрашиваемая страница не найдена
+          Ты попал в зону, которую даже админы не знают.
         </div>
         <Button onClick={goToHome} className={styles.backButton}>
           Вернуться на главную
