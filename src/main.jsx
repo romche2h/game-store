@@ -5,6 +5,7 @@ import App from './App.jsx';
 import Login from './pages/Login/Login.jsx';
 import Register from './pages/Register/Register.jsx';
 import SteamSuccess from './pages/SteamSuccess/SteamSuccess.jsx';
+import NotFound from './pages/NotFound/NotFound.jsx';
 import RedirectIfAuthenticated from './components/RedirectIfAuthenticated/RedirectIfAuthenticated.jsx';
 
 const router = createBrowserRouter([
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
   {
     path: '/steam-success',
     element: <SteamSuccess />,
+  },
+  {
+    path: '*',
+    element: <NotFound />,
   },
 ]);
 

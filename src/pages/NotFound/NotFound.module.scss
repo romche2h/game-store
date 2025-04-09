@@ -1,0 +1,36 @@
+@use '../../styles/variables.scss' as *;
+.notFoundPage {
+  background: $color-blue-dark;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    color: $color-grey-dark;
+    .errorCode {
+      font-size: 25rem;
+      color: $color-green-light;
+    }
+    .errorMessage {
+      font-size: 6rem;
+    }
+    .errorDescription {
+      font-size: 6rem;
+    }
+    .iconsRow {
+      display: flex;
+      gap: 2rem;
+      margin-top: 6rem;
+      height: 12rem;
+      color: $color-green-light;
+    }
+  }
+}
