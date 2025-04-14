@@ -2,6 +2,7 @@ import Button from '../../components/Button/Button';
 import styles from './CreateTeam.module.scss';
 import { useState } from 'react';
 import CountrySelect from './CountrySelect';
+import { useNavigate } from 'react-router-dom';
 
 function CreateTeam() {
   const [form, setForm] = useState({
@@ -12,6 +13,7 @@ function CreateTeam() {
     description: '',
   });
   const [message, setMessage] = useState('');
+  const navigate = useNavigate();
   const platforms = ['PC', 'Xbox', 'Nintendo Switch', 'Steam Deck', 'Mobile'];
 
   const handleCreate = (e) => {
@@ -32,7 +34,7 @@ function CreateTeam() {
       country: form.country.name,
     };
 
-    console.log('Создание команды с данными:', formData);
+    console.log('Данные которые я отправляю на бек', formData);
 
     setForm({
       nameTeam: '',
@@ -55,6 +57,9 @@ function CreateTeam() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
+  };
+  const homePage = () => {
+    navigate('/');
   };
 
   return (
@@ -142,6 +147,11 @@ function CreateTeam() {
 
         <Button>Создать команду</Button>
       </form>
+
+      <Button className={styles.back} onClick={homePage}>
+        {'<---'}
+      </Button>
+
       {message && <div>{message}</div>}
     </div>
   );

@@ -10,5 +10,6 @@ declare const classNames: {
   readonly title: "title";
   readonly svg: "svg";
   readonly selectAndInput: "selectAndInput";
+  readonly back: "back";
 };
 export = classNames;
