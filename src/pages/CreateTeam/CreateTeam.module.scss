@@ -1,0 +1,48 @@
+@use '../../styles/variables.scss' as *;
+.container {
+  background: $color-blue-dark;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .header {
+    margin-bottom: 4rem;
+    color: $color-green-dark;
+  }
+
+  .teamForm {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    .contant {
+      display: flex;
+      flex-direction: column;
+      color: $color-green-dark;
+
+      .title {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        margin-bottom: 1rem;
+      }
+      .svg {
+        width: 3rem;
+        height: 3rem;
+        color: $color-green-dark;
+      }
+    }
+  }
+
+  .selectAndInput {
+    font-size: 1.7rem;
+    font-weight: 400;
+    color: black;
+    border: 0.1rem solid #eee;
+    border-radius: 1rem;
+    padding: 2rem;
+    resize: none;
+  }
+}
