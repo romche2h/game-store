@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './BestText.module.scss';
 import Button from '../Button/Button';
 import { useNavigate } from 'react-router-dom';
 
 function BestText() {
+  const [isLoginId, setLoginId] = useState(false);
   const navigate = useNavigate();
   const createTeam = () => {
     navigate('/creat-team');
   };
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    setLoginId(!!token);
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -23,7 +29,7 @@ function BestText() {
             сценарии поведения пользователей освещают <br /> чрезвычайно
             интересные особенности картины.
           </div>
-          <Button onClick={createTeam}>Создать команду</Button>
+          {isLoginId && <Button onClick={createTeam}>Создать команду</Button>}
         </div>
       </div>
     </div>

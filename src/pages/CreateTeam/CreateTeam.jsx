@@ -1,10 +1,12 @@
 import Button from '../../components/Button/Button';
-import styles from './CreateTeam.module.scss';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import styles from './CreateTeam.module.scss';
 import PlatformSelect from '../../components/PlatformSelect/PlatformSelect';
 import PlatformSelectLogo from '../../components/PlatformSelectLogo/PlatformSelectLogo';
 import PlatformSelectCountry from '../../components/PlatformSelectCountry/PlatformSelectCountry';
-import { useNavigate } from 'react-router-dom';
+import PlatformSelectTeamName from '../../components/PlatformSelectTeamName/PlatformSelectTeamName';
+import PlatformSelectDescription from '../../components/PlatformSelectDescription/PlatformSelectDescription';
 
 function CreateTeam() {
   const [form, setForm] = useState({
@@ -54,9 +56,15 @@ function CreateTeam() {
     const file = e.target.files[0];
     setForm((prev) => ({ ...prev, logo: file }));
   };
-
   const handleChange = (e) => {
     const { name, value } = e.target;
+
+    // Ограничение только английского языка и цифры в поле nameTeam
+    if (name === 'nameTeam') {
+      const regex = /^[a-zA-Z0-9\s]*$/;
+      if (!regex.test(value)) return;
+    }
+
     setForm((prev) => ({ ...prev, [name]: value }));
   };
   const homePage = () => {
@@ -67,55 +75,24 @@ function CreateTeam() {
     <div className={styles.container}>
       <h1 className={styles.header}>Создать команду</h1>
       <form className={styles.teamForm} onSubmit={handleCreate}>
-        <div className={styles.contant}>
-          <div className={styles.title}>
-            <svg className={styles.svg}>
-              <use href='/icons/symbolTeam.svg#team'></use>
-            </svg>
-            <label htmlFor='teamName'>Название команды</label>
-          </div>
-          <input
-            id='teamName'
-            name='nameTeam'
-            type='text'
-            placeholder='Введите уникальное название команды'
-            value={form.nameTeam}
-            onChange={handleChange}
-            className={styles.selectAndInput}
-          />
-        </div>
+        <PlatformSelectTeamName value={form.nameTeam} onChange={handleChange} />
         <PlatformSelect value={form.platform} onChange={handleChange} />
         <PlatformSelectLogo onChange={handleFileChange} />
         <PlatformSelectCountry
           value={form.country}
           onSelect={(country) => setForm((prev) => ({ ...prev, country }))}
         />
-
-        <div className={styles.contant}>
-          <div className={styles.title}>
-            <svg className={styles.svg}>
-              <use href='/icons/symbolTeam.svg#description'></use>
-            </svg>
-            <label htmlFor='description'>Описание команды</label>
-          </div>
-          <textarea
-            name='description'
-            id='description'
-            placeholder='Расскажи, кто вы, во что играете..'
-            value={form.description}
-            onChange={handleChange}
-            className={styles.selectAndInput}
-          ></textarea>
-        </div>
-
+        <PlatformSelectDescription
+          value={form.description}
+          onChange={handleChange}
+        />
         <Button>Создать команду</Button>
       </form>
-
       <Button className={styles.back} onClick={homePage}>
         {'<---'}
       </Button>
 
-      {message && <div>{message}</div>}
+      <div>{message}</div>
     </div>
   );
 }
