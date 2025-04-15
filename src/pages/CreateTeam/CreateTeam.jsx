@@ -2,6 +2,7 @@ import Button from '../../components/Button/Button';
 import styles from './CreateTeam.module.scss';
 import { useState } from 'react';
 import CountrySelect from './CountrySelect';
+import PlatformSelect from '../../components/PlatformSelect/PlatformSelect';
 import { useNavigate } from 'react-router-dom';
 
 function CreateTeam() {
@@ -14,7 +15,6 @@ function CreateTeam() {
   });
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
-  const platforms = ['PC', 'Xbox', 'Nintendo Switch', 'Steam Deck', 'Mobile'];
 
   const handleCreate = (e) => {
     e.preventDefault();
@@ -84,28 +84,7 @@ function CreateTeam() {
           />
         </div>
 
-        <div className={styles.contant}>
-          <div className={styles.title}>
-            <svg className={styles.svg}>
-              <use href='/icons/symbolTeam.svg#controller'></use>
-            </svg>
-            <label htmlFor='platform'>Платформа</label>
-          </div>
-          <select
-            className={styles.selectAndInput}
-            name='platform'
-            id='platform'
-            value={form.platform}
-            onChange={handleChange}
-          >
-            <option value=''>Выберите платформу</option>
-            {platforms.map((platform) => (
-              <option key={platform} value={platform}>
-                {platform}
-              </option>
-            ))}
-          </select>
-        </div>
+        <PlatformSelect value={form.platform} onChange={handleChange} />
 
         <div className={styles.contant}>
           <div className={styles.title}>
