@@ -8,6 +8,7 @@ import SteamSuccess from './pages/SteamSuccess/SteamSuccess.jsx';
 import NotFound from './pages/NotFound/NotFound.jsx';
 import CreateTeam from './pages/CreateTeam/CreateTeam.jsx';
 import RedirectIfAuthenticated from './components/RedirectIfAuthenticated/RedirectIfAuthenticated.jsx';
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -37,7 +38,11 @@ const router = createBrowserRouter([
   },
   {
     path: '/creat-team',
-    element: <CreateTeam />,
+    element: (
+      <ProtectedRoute>
+        <CreateTeam />,
+      </ProtectedRoute>
+    ),
   },
   {
     path: '*',
