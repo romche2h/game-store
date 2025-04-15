@@ -7,11 +7,8 @@ declare const classNames: {
   readonly title: "title";
   readonly svg: "svg";
   readonly selectAndInput: "selectAndInput";
-  readonly header_left: "header_left";
-  readonly logo: "logo";
-  readonly content: "content";
-  readonly about: "about";
-  readonly gameImg: "gameImg";
-  readonly img: "img";
+  readonly hiddenFileInput: "hiddenFileInput";
+  readonly customFile: "customFile";
+  readonly plus: "plus";
 };
 export = classNames;

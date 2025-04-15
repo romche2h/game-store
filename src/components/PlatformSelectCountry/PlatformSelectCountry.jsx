@@ -1,9 +1,10 @@
 import React from 'react';
 import axios from 'axios';
-import styles from './CountrySelect.module.scss';
+import styles from './PlatformSelectCountry.module.scss';
+
 import { useState, useEffect } from 'react';
 
-function CountrySelect({ value, onSelect }) {
+function PlatformSelectCountry({ value, onSelect }) {
   const [countries, setCountries] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -65,4 +66,4 @@ function CountrySelect({ value, onSelect }) {
   );
 }
 
-export default CountrySelect;
+export default PlatformSelectCountry;

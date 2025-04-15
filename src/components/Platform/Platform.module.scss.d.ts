@@ -3,13 +3,15 @@ declare const classNames: {
   readonly titleOne: "titleOne";
   readonly titleTwo: "titleTwo";
   readonly titleThree: "titleThree";
+  readonly contant: "contant";
+  readonly title: "title";
+  readonly svg: "svg";
+  readonly selectAndInput: "selectAndInput";
   readonly test: "test";
   readonly platform: "platform";
   readonly cart: "cart";
   readonly img: "img";
-  readonly title: "title";
   readonly info: "info";
-  readonly svg: "svg";
   readonly btn: "btn";
 };
 export = classNames;

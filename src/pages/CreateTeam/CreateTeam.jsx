@@ -1,8 +1,9 @@
 import Button from '../../components/Button/Button';
 import styles from './CreateTeam.module.scss';
 import { useState } from 'react';
-import CountrySelect from './CountrySelect';
 import PlatformSelect from '../../components/PlatformSelect/PlatformSelect';
+import PlatformSelectLogo from '../../components/PlatformSelectLogo/PlatformSelectLogo';
+import PlatformSelectCountry from '../../components/PlatformSelectCountry/PlatformSelectCountry';
 import { useNavigate } from 'react-router-dom';
 
 function CreateTeam() {
@@ -83,26 +84,9 @@ function CreateTeam() {
             className={styles.selectAndInput}
           />
         </div>
-
         <PlatformSelect value={form.platform} onChange={handleChange} />
-
-        <div className={styles.contant}>
-          <div className={styles.title}>
-            <svg className={styles.svg}>
-              <use href='/icons/symbolTeam.svg#logoTeam'></use>
-            </svg>
-            <label htmlFor='logo'>Логотип команды</label>
-          </div>
-          <input
-            id='logo'
-            name='logo'
-            type='file'
-            className={styles.selectAndInput}
-            onChange={handleFileChange}
-          />
-        </div>
-
-        <CountrySelect
+        <PlatformSelectLogo onChange={handleFileChange} />
+        <PlatformSelectCountry
           value={form.country}
           onSelect={(country) => setForm((prev) => ({ ...prev, country }))}
         />
@@ -117,7 +101,7 @@ function CreateTeam() {
           <textarea
             name='description'
             id='description'
-            placeholder='Расскажи, кто вы, во что играете, и какие цели преследуете'
+            placeholder='Расскажи, кто вы, во что играете..'
             value={form.description}
             onChange={handleChange}
             className={styles.selectAndInput}

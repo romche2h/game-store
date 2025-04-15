@@ -6,6 +6,7 @@ declare const classNames: {
   readonly contant: "contant";
   readonly title: "title";
   readonly svg: "svg";
+  readonly selectAndInput: "selectAndInput";
   readonly customSelect: "customSelect";
   readonly selected: "selected";
   readonly flag: "flag";

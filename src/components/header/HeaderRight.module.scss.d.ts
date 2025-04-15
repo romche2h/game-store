@@ -3,6 +3,10 @@ declare const classNames: {
   readonly titleOne: "titleOne";
   readonly titleTwo: "titleTwo";
   readonly titleThree: "titleThree";
+  readonly contant: "contant";
+  readonly title: "title";
+  readonly svg: "svg";
+  readonly selectAndInput: "selectAndInput";
   readonly gamersList: "gamersList";
   readonly exit: "exit";
   readonly container: "container";

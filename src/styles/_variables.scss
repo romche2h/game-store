@@ -24,6 +24,7 @@ body {
   color: $color-grey-light;
   font-size: 1.6rem;
 }
+//сss стили для заголовков
 
 // h4
 .titleFour {
@@ -57,4 +58,33 @@ body {
   font-size: 1.7rem;
   font-weight: 300;
   line-height: 2.1rem;
+}
+
+// css стили для createTeam
+.contant {
+  display: flex;
+  flex-direction: column;
+  color: $color-green-dark;
+
+  .title {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin-bottom: 1rem;
+  }
+  .svg {
+    width: 3rem;
+    height: 3rem;
+    color: $color-green-dark;
+  }
+}
+.selectAndInput {
+  font-size: 1.7rem;
+  font-weight: 400;
+  color: black;
+  border: 0.1rem solid #eee;
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 36rem;
+  resize: none;
 }

@@ -1,0 +1,29 @@
+@use '../../styles/variables.scss' as *;
+
+.hiddenFileInput {
+  display: none;
+}
+
+.customFile {
+  width: 8rem;
+  height: 4rem;
+  background-color: $color-green-light;
+  color: $color-green-light;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: $color-green-dark;
+  }
+}
+
+.plus {
+  color: $color-grey-light;
+  pointer-events: none;
+}
