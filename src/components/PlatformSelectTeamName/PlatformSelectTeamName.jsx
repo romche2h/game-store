@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './PlatformSelectTeamName.module.scss';
 
-function PlatformSelectTeamName({ value, onChange }) {
+function PlatformSelectTeamName({ value, onChange, autoFocus }) {
   return (
     <div className={styles.contant}>
       <div className={styles.title}>
@@ -15,6 +15,7 @@ function PlatformSelectTeamName({ value, onChange }) {
         name='nameTeam'
         type='text'
         placeholder='Введите уникальное название команды'
+        autoFocus={autoFocus}
         value={value}
         onChange={onChange}
         className={styles.selectAndInput}

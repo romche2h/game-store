@@ -7,6 +7,7 @@ import PlatformSelectLogo from '../../components/PlatformSelectLogo/PlatformSele
 import PlatformSelectCountry from '../../components/PlatformSelectCountry/PlatformSelectCountry';
 import PlatformSelectTeamName from '../../components/PlatformSelectTeamName/PlatformSelectTeamName';
 import PlatformSelectDescription from '../../components/PlatformSelectDescription/PlatformSelectDescription';
+import axios from 'axios';
 
 function CreateTeam() {
   const [form, setForm] = useState({
@@ -19,7 +20,7 @@ function CreateTeam() {
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
 
-  const handleCreate = (e) => {
+  const handleCreate = async (e) => {
     e.preventDefault();
     if (
       !form.nameTeam ||
@@ -32,30 +33,52 @@ function CreateTeam() {
       return;
     }
 
-    const formData = {
-      ...form,
-      country: form.country.name,
-    };
+    // Создание FormData для отправки на сервер
+    const formData = new FormData();
+    formData.append('nameTeam', form.nameTeam);
+    formData.append('platform', form.platform);
+    formData.append('logo', form.logo);
+    formData.append('country', form.country);
+    formData.append('description', form.description);
 
-    console.log('Данные которые я отправляю на бек', formData);
+    try {
+      const response = await axios.post(
+        'http://localhost:5000/api/teams',
+        formData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+          withCredentials: true,
+        }
+      );
 
-    setForm({
-      nameTeam: '',
-      platform: '',
-      logo: null,
-      country: null,
-      description: '',
-    });
-
-    const fileInput = document.getElementById('logo');
-    if (fileInput) fileInput.value = '';
-    setMessage('Команда успешно создана!');
+      if (response.data.message === 'Команда успешно создана!') {
+        setMessage('Команда успешно создана!');
+        setForm({
+          nameTeam: '',
+          platform: '',
+          logo: null,
+          country: null,
+          description: '',
+        });
+        const fileInput = document.getElementById('logo');
+        if (fileInput) fileInput.value = '';
+      }
+    } catch (error) {
+      if (error.response) {
+        setMessage(error.response.data.error || 'Ошибка при создании команды!');
+      } else {
+        setMessage('Ошибка при подключении к серверу!');
+      }
+    }
   };
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     setForm((prev) => ({ ...prev, logo: file }));
   };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -67,6 +90,7 @@ function CreateTeam() {
 
     setForm((prev) => ({ ...prev, [name]: value }));
   };
+
   const homePage = () => {
     navigate('/');
   };
@@ -75,7 +99,11 @@ function CreateTeam() {
     <div className={styles.container}>
       <h1 className={styles.header}>Создать команду</h1>
       <form className={styles.teamForm} onSubmit={handleCreate}>
-        <PlatformSelectTeamName value={form.nameTeam} onChange={handleChange} />
+        <PlatformSelectTeamName
+          value={form.nameTeam}
+          onChange={handleChange}
+          autoFocus
+        />
         <PlatformSelect value={form.platform} onChange={handleChange} />
         <PlatformSelectLogo onChange={handleFileChange} />
         <PlatformSelectCountry
