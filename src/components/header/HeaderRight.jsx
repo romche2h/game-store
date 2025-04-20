@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './HeaderRight.module.scss';
 import ExitButton from '../ExitButton/ExitButton.jsx';
+import Button from '../Button/Button.jsx';
+import { useNavigate } from 'react-router-dom';
 
 const players = [
   {
@@ -24,10 +26,15 @@ const players = [
 ];
 
 function HeaderRight() {
+  const navigate = useNavigate();
+  const buttonProfile = () => navigate('my-profiel');
   return (
     <>
       <div className={styles.gamersList}>
-        <ExitButton />
+        <div className={styles.test}>
+          <ExitButton />
+          <Button onClick={buttonProfile}>Мой профиль</Button>
+        </div>
         <div className={styles.titleFour}>TOP 3 PLAYERS</div>
         {players.map((player) => (
           <div key={player.id} className={styles.container}>

@@ -5,6 +5,8 @@ import Button from '../../components/Button/Button';
 import InputField from '../../components/InputField/InputField';
 import BackgroundVideoAuth from '../../components/BackgroundVideoAuth/BackgroundVideo';
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { fetchUserTeams } from '../../Redux/Features/team/teamThunks';
 
 function Login() {
   const [showPass, setShowPass] = useState(false);
@@ -13,6 +15,7 @@ function Login() {
   const [loading, setLoading] = useState(false);
   const [isSteamLogin, setIsSteamLogin] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const icons = {
     show: 'src/icons/showpass.svg',
@@ -25,11 +28,12 @@ function Login() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSteamLogin = () => {
+  const handleSteamLogin = async () => {
     const url = new URL(window.location.href);
     const token = url.searchParams.get('token');
     if (token) {
       localStorage.setItem('token', token);
+      await dispatch(fetchUserTeams());
       navigate('/');
     } else {
       setIsSteamLogin(true);
@@ -55,7 +59,7 @@ function Login() {
       });
       if (response.data.token) {
         localStorage.setItem('token', response.data.token);
-        console.log('Токен сохранен:', localStorage.getItem('token'));
+        await dispatch(fetchUserTeams());
       }
       setMessage(response.data.message);
       setForm({ email: '', password: '' });

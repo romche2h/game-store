@@ -29,6 +29,7 @@ function BestText() {
             сценарии поведения пользователей освещают <br /> чрезвычайно
             интересные особенности картины.
           </div>
+
           {isLoginId && <Button onClick={createTeam}>Создать команду</Button>}
         </div>
       </div>
@@ -37,3 +38,4 @@ function BestText() {
 }
 
 export default BestText;
+// на 32 строке (выводить кнопку если залогинен и нет team )

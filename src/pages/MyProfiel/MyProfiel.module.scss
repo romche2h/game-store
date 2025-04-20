@@ -1,0 +1,46 @@
+@use '../../styles/variables.scss' as *;
+
+.container {
+  background-color: $color-blue-dark;
+  min-height: 100vh;
+  padding: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  .header {
+    font-size: 5rem;
+  }
+  .contant {
+    display: flex;
+    gap: 3rem;
+    font-size: 2rem;
+    color: $color-grey-light;
+    .nameTeam {
+    }
+    .logoTeam {
+      .logoTeamName {
+      }
+    }
+    .infoSection {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      margin-bottom: 3rem;
+
+      .platformTeam {
+      }
+      .description {
+      }
+      .country {
+      }
+    }
+  }
+  .actionButtons {
+    display: flex;
+    gap: 3rem;
+  }
+  .inTheMain {
+  }
+}

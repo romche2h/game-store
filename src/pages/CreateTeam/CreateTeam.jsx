@@ -8,6 +8,8 @@ import PlatformSelectCountry from '../../components/PlatformSelectCountry/Platfo
 import PlatformSelectTeamName from '../../components/PlatformSelectTeamName/PlatformSelectTeamName';
 import PlatformSelectDescription from '../../components/PlatformSelectDescription/PlatformSelectDescription';
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { addTeam } from '../../Redux/Features/team/teamSlice';
 
 function CreateTeam() {
   const [form, setForm] = useState({
@@ -19,6 +21,7 @@ function CreateTeam() {
   });
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleCreate = async (e) => {
     e.preventDefault();
@@ -33,7 +36,6 @@ function CreateTeam() {
       return;
     }
 
-    // Создание FormData для отправки на сервер
     const formData = new FormData();
     formData.append('nameTeam', form.nameTeam);
     formData.append('platform', form.platform);
@@ -42,29 +44,39 @@ function CreateTeam() {
     formData.append('description', form.description);
 
     try {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        setMessage('Токен не найден!');
+        return;
+      }
+
       const response = await axios.post(
         'http://localhost:5000/api/teams',
         formData,
         {
           headers: {
             'Content-Type': 'multipart/form-data',
+            Authorization: `Bearer ${token}`,
           },
-          withCredentials: true,
         }
       );
 
-      if (response.data.message === 'Команда успешно создана!') {
-        setMessage('Команда успешно создана!');
-        setForm({
-          nameTeam: '',
-          platform: '',
-          logo: null,
-          country: null,
-          description: '',
-        });
-        const fileInput = document.getElementById('logo');
-        if (fileInput) fileInput.value = '';
-      }
+      const { data } = response;
+      setMessage(data.message);
+
+      setForm({
+        nameTeam: '',
+        platform: '',
+        logo: null,
+        country: null,
+        description: '',
+      });
+
+      const fileInput = document.getElementById('logo');
+      if (fileInput) fileInput.value = '';
+
+      const { team } = data;
+      dispatch(addTeam({ ...team, id: Date.now() }));
     } catch (error) {
       if (error.response) {
         setMessage(error.response.data.error || 'Ошибка при создании команды!');

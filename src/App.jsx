@@ -12,6 +12,7 @@ import Platform from './components/Platform/Platform';
 import { Outlet } from 'react-router-dom';
 
 function App() {
+  // если залогинен брать команду с бека и записывать в redux
   return (
     <>
       <div className='container'>

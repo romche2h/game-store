@@ -9,6 +9,9 @@ import NotFound from './pages/NotFound/NotFound.jsx';
 import CreateTeam from './pages/CreateTeam/CreateTeam.jsx';
 import RedirectIfAuthenticated from './components/RedirectIfAuthenticated/RedirectIfAuthenticated.jsx';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute.jsx';
+import MyPrifile from './pages/MyProfiel/MyPrifile.jsx';
+import { Provider } from 'react-redux';
+import store from './Redux/store.js';
 
 const router = createBrowserRouter([
   {
@@ -44,6 +47,7 @@ const router = createBrowserRouter([
       </ProtectedRoute>
     ),
   },
+  { path: 'my-profiel', element: <MyPrifile /> },
   {
     path: '*',
     element: <NotFound />,
@@ -52,6 +56,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </StrictMode>
 );
