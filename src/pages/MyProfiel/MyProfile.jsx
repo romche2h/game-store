@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import styles from './MyProfiel.module.scss';
+import styles from './MyProfile.module.scss';
 import Button from '../../components/Button/Button';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-function MyPrifile() {
+function MyProfile() {
   const [team, setTeam] = useState(null);
   const navigate = useNavigate();
 
@@ -50,4 +50,4 @@ function MyPrifile() {
   );
 }
 
-export default MyPrifile;
+export default MyProfile;

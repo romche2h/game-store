@@ -9,7 +9,7 @@ import NotFound from './pages/NotFound/NotFound.jsx';
 import CreateTeam from './pages/CreateTeam/CreateTeam.jsx';
 import RedirectIfAuthenticated from './components/RedirectIfAuthenticated/RedirectIfAuthenticated.jsx';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute.jsx';
-import MyPrifile from './pages/MyProfiel/MyPrifile.jsx';
+import MyPrifile from './pages/MyProfiel/MyProfile.jsx';
 import { Provider } from 'react-redux';
 import store from './Redux/store.js';
 
@@ -47,7 +47,14 @@ const router = createBrowserRouter([
       </ProtectedRoute>
     ),
   },
-  { path: 'my-profiel', element: <MyPrifile /> },
+  {
+    path: 'my-profile',
+    element: (
+      <ProtectedRoute>
+        <MyPrifile />,
+      </ProtectedRoute>
+    ),
+  },
   {
     path: '*',
     element: <NotFound />,

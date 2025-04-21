@@ -1,7 +1,8 @@
 @use '../../styles/variables.scss' as *;
 
-.exit {
+.profileAndLogout {
   display: flex;
   justify-content: end;
   transform: translateY(-9.5rem);
+  gap: 2rem;
 }

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Button from '../Button/Button';
-import styles from './ExitButton.module.scss';
+import styles from './ProfileAndLogout.module.scss';
 import { useNavigate } from 'react-router-dom';
 
-function ExitButton() {
+function ProfileAndLogout() {
   const [isLoginId, setLoginId] = useState(false);
   const navigate = useNavigate();
 
@@ -18,15 +18,20 @@ function ExitButton() {
     navigate('/login');
   };
 
+  const buttonProfile = () => {
+    navigate('/my-profile');
+  };
+
   if (!isLoginId) {
     return null;
   }
 
   return (
-    <div className={styles.exit}>
+    <div className={styles.profileAndLogout}>
+      <Button onClick={buttonProfile}>Мой профиль</Button>
       <Button onClick={handleLogout}>Выход</Button>
     </div>
   );
 }
 
-export default ExitButton;
+export default ProfileAndLogout;

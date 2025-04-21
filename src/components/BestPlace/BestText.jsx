@@ -5,7 +5,9 @@ import { useNavigate } from 'react-router-dom';
 
 function BestText() {
   const [isLoginId, setLoginId] = useState(false);
+  const [haveProfile, setHaveProfile] = useState(false);
   const navigate = useNavigate();
+
   const createTeam = () => {
     navigate('/creat-team');
   };
@@ -13,6 +15,8 @@ function BestText() {
   useEffect(() => {
     const token = localStorage.getItem('token');
     setLoginId(!!token);
+    const teamExists = localStorage.getItem('team');
+    setHaveProfile(!!teamExists);
   }, []);
 
   return (
@@ -30,7 +34,12 @@ function BestText() {
             интересные особенности картины.
           </div>
 
-          {isLoginId && <Button onClick={createTeam}>Создать команду</Button>}
+          {isLoginId &&
+            (haveProfile ? (
+              <Button disabled>У вас есть команда</Button>
+            ) : (
+              <Button onClick={createTeam}>Создать команду</Button>
+            ))}
         </div>
       </div>
     </div>
@@ -38,4 +47,3 @@ function BestText() {
 }
 
 export default BestText;
-// на 32 строке (выводить кнопку если залогинен и нет team )

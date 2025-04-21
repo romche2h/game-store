@@ -9,7 +9,13 @@ export const fetchUserTeams = () => async (dispatch) => {
     });
     const { teams } = response.data;
     dispatch(setTeam(teams));
+    if (teams && teams.length > 0) {
+      localStorage.setItem('team', 'true');
+    } else {
+      localStorage.removeItem('team');
+    }
   } catch (error) {
     console.log('Ошибка при загрузке', error);
+    localStorage.removeItem('team');
   }
 };
