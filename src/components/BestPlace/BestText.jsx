@@ -1,23 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styles from './BestText.module.scss';
 import Button from '../Button/Button';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function BestText() {
-  const [isLoginId, setLoginId] = useState(false);
-  const [haveProfile, setHaveProfile] = useState(false);
   const navigate = useNavigate();
+  const token = localStorage.getItem('token');
+  const teams = useSelector((state) => state.team.teams || []);
+  const haveProfile = teams.length > 0;
 
   const createTeam = () => {
     navigate('/creat-team');
   };
-
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    setLoginId(!!token);
-    const teamExists = localStorage.getItem('team');
-    setHaveProfile(!!teamExists);
-  }, []);
 
   return (
     <div className={styles.container}>
@@ -34,7 +29,7 @@ function BestText() {
             интересные особенности картины.
           </div>
 
-          {isLoginId &&
+          {token &&
             (haveProfile ? (
               <Button disabled>У вас есть команда</Button>
             ) : (
