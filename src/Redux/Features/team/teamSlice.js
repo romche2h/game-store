@@ -13,7 +13,9 @@ const teamSlice = createSlice({
       console.log('команда добавлена!', action.payload);
     },
     removeTeam: (state, action) => {
-      state.teams = state.teams.filter((team) => team.id !== action.payload);
+      state.teams = state.teams.filter(
+        (team) => team.nameTeam !== action.payload
+      );
       console.log('команда удалина с id:', action.payload);
     },
     setTeam: (state, action) => {
