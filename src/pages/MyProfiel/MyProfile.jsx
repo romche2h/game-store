@@ -7,7 +7,6 @@ import {
   deletUserTeam,
   fetchUserTeams,
 } from '../../Redux/Features/team/teamThunks';
-import { removeTeam } from '../../Redux/Features/team/teamSlice';
 
 function MyProfile() {
   const [loading, setLoading] = useState(true);
@@ -32,10 +31,6 @@ function MyProfile() {
 
   const goHome = () => navigate('/');
   const goCreatTeam = () => navigate('/creat-team');
-
-  const handleRemoveTeam = (teamId) => {
-    dispatch(removeTeam(teamId));
-  };
 
   if (loading) {
     return (

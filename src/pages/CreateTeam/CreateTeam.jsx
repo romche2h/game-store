@@ -77,6 +77,10 @@ function CreateTeam() {
 
       const { team } = data;
       dispatch(addTeam({ ...team, id: Date.now() }));
+
+      setTimeout(() => {
+        navigate('/');
+      }, 2000);
     } catch (error) {
       if (error.response) {
         setMessage(error.response.data.error || 'Ошибка при создании команды!');
