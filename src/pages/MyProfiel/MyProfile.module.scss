@@ -9,48 +9,54 @@
   justify-content: center;
   align-items: center;
   gap: 3rem;
+
   .header {
     font-size: 5rem;
   }
+
   .contant {
     display: flex;
     gap: 3rem;
     font-size: 2rem;
     color: $color-grey-light;
-    .nameTeam {
-    }
-    .teamLogo {
-      width: 50rem;
-      .logoTeamName {
+    max-width: 55rem;
+    padding: 3rem;
+    border: 0.2rem solid rgb(97, 165, 104);
+
+    .logoTeam {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+
+      .teamLogo {
+        border-radius: 50%;
+        width: 15rem;
+        height: 15rem;
+        object-fit: cover;
+        border: 0.2rem solid rgb(97, 165, 104);
       }
     }
+
     .infoSection {
       display: flex;
       flex-direction: column;
       gap: 3rem;
       margin-bottom: 3rem;
-
-      .platformTeam {
-      }
-      .description {
-      }
-      .country {
-      }
     }
   }
+
   .actionButtons {
     display: flex;
     gap: 3rem;
+    justify-content: center;
   }
-  .inTheMain {
-  }
-}
 
-.noTeam {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 3rem;
-  font-size: 4rem;
+  .noTeam {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 3rem;
+    font-size: 4rem;
+  }
 }

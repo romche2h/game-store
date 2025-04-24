@@ -51,7 +51,8 @@ function MyProfile() {
       {team ? (
         <div className={styles.contant}>
           <div className={styles.nameTeam}>
-            Название команды: {team?.nameTeam || 'Нет данных'}
+            <span className={styles.highlightedText}>Название команды: </span>
+            {team?.nameTeam || 'Нет данных'}
           </div>
           <div className={styles.logoTeam}>
             {team?.logoUrl ? (
@@ -63,21 +64,23 @@ function MyProfile() {
             ) : (
               <div>Нет логотипа</div>
             )}
-            <div className={styles.logoTeamName}>Логотип команды</div>
+            <div className={styles.highlightedText}>Логотип команды</div>
           </div>
           <div className={styles.infoSection}>
             <div className={styles.platformTeam}>
-              Платформа: {team?.platform || 'Нет данных'}
+              <span className={styles.highlightedText}>Платформа: </span>
+              {team?.platform || 'Нет данных'}
             </div>
             <div className={styles.country}>
-              Страна: {team?.country || 'Нет данных'}
+              <span className={styles.highlightedText}>Страна: </span>
+              {team?.country || 'Нет данных'}
             </div>
             <div className={styles.description}>
-              Описание команды: {team?.description || 'Нет данных'}
+              <span className={styles.highlightedText}>Описание команды: </span>
+              {team?.description || 'Нет данных'}
             </div>
           </div>
           <div className={styles.actionButtons}>
-            <Button>Редактировать</Button>
             <Button onClick={() => handleDeleteTeam(team.nameTeam)}>
               Удалить команду
             </Button>

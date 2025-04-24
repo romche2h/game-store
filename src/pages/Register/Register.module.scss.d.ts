@@ -7,6 +7,7 @@ declare const classNames: {
   readonly title: "title";
   readonly svg: "svg";
   readonly selectAndInput: "selectAndInput";
+  readonly highlightedText: "highlightedText";
   readonly register: "register";
   readonly logo: "logo";
   readonly background: "background";
