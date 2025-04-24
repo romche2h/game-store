@@ -14,6 +14,7 @@ function PlatformSelectDescription({ value, onChange }) {
         name='description'
         id='description'
         placeholder='Расскажи, кто вы, во что играете..'
+        maxLength='200'
         value={value}
         onChange={onChange}
         className={styles.selectAndInput}

@@ -40,8 +40,9 @@ function CreateTeam() {
     formData.append('nameTeam', form.nameTeam);
     formData.append('platform', form.platform);
     formData.append('logo', form.logo);
-    formData.append('country', form.country);
+    formData.append('country', JSON.stringify(form.country));
     formData.append('description', form.description);
+    console.log('Отправляем страну:', form.country);
 
     try {
       const token = localStorage.getItem('token');

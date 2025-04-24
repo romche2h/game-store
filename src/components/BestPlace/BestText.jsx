@@ -11,7 +11,7 @@ function BestText() {
   const haveProfile = teams.length > 0;
 
   const createTeam = () => {
-    navigate('/creat-team');
+    navigate('/create-team');
   };
 
   return (

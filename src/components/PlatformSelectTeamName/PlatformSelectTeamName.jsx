@@ -15,6 +15,7 @@ function PlatformSelectTeamName({ value, onChange, autoFocus }) {
         name='nameTeam'
         type='text'
         placeholder='Введите уникальное название команды'
+        maxLength='22'
         autoFocus={autoFocus}
         value={value}
         onChange={onChange}

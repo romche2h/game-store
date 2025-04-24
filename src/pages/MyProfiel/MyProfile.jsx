@@ -30,7 +30,7 @@ function MyProfile() {
   }, [teams.length, dispatch]);
 
   const goHome = () => navigate('/');
-  const goCreatTeam = () => navigate('/creat-team');
+  const goCreatTeam = () => navigate('/create-team');
 
   if (loading) {
     return (
@@ -73,7 +73,16 @@ function MyProfile() {
             </div>
             <div className={styles.country}>
               <span className={styles.highlightedText}>Страна: </span>
-              {team?.country || 'Нет данных'}
+              {team?.country?.name || 'Нет данных'}
+              {team?.country?.flag ? (
+                <img
+                  src={team.country.flag}
+                  alt={`Флаг ${team.country.name}`}
+                  className={styles.flag}
+                />
+              ) : (
+                <span>Флаг отсутствует</span>
+              )}
             </div>
             <div className={styles.description}>
               <span className={styles.highlightedText}>Описание команды: </span>

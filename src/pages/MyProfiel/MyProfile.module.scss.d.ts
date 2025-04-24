@@ -15,5 +15,6 @@ declare const classNames: {
   readonly infoSection: "infoSection";
   readonly actionButtons: "actionButtons";
   readonly noTeam: "noTeam";
+  readonly flag: "flag";
 };
 export = classNames;

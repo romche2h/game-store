@@ -9,7 +9,7 @@ import NotFound from './pages/NotFound/NotFound.jsx';
 import CreateTeam from './pages/CreateTeam/CreateTeam.jsx';
 import RedirectIfAuthenticated from './components/RedirectIfAuthenticated/RedirectIfAuthenticated.jsx';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute.jsx';
-import MyPrifile from './pages/MyProfiel/MyProfile.jsx';
+import MyProfile from './pages/MyProfiel/MyProfile.jsx';
 import { Provider } from 'react-redux';
 import store from './Redux/store.js';
 
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
     element: <SteamSuccess />,
   },
   {
-    path: '/creat-team',
+    path: '/create-team',
     element: (
       <ProtectedRoute>
         <CreateTeam />,
@@ -51,7 +51,7 @@ const router = createBrowserRouter([
     path: 'my-profile',
     element: (
       <ProtectedRoute>
-        <MyPrifile />,
+        <MyProfile />,
       </ProtectedRoute>
     ),
   },
