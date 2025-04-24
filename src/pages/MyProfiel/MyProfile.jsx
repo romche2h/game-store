@@ -90,7 +90,7 @@ function MyProfile() {
         </div>
       ) : (
         <div className={styles.noTeam}>
-          <p>У вас пока нет команды.</p>
+          <p>У вас пока нет команды</p>
           <Button onClick={goCreatTeam}>Создать команду</Button>
         </div>
       )}
