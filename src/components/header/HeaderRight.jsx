@@ -26,9 +26,7 @@ function HeaderRight() {
   return (
     <>
       <div className={styles.gamersList}>
-        <div className={styles.test}>
-          <ProfileAndLogout />
-        </div>
+        <ProfileAndLogout />
         <div className={styles.titleFour}>TOP 3 PLAYERS</div>
         {players.map((player) => (
           <div key={player.id} className={styles.container}>

@@ -6,3 +6,10 @@
   transform: translateY(-9.5rem);
   gap: 2rem;
 }
+
+.userName {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $color-green-light;
+}

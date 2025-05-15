@@ -12,6 +12,7 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute.jsx';
 import MyProfile from './pages/MyProfiel/MyProfile.jsx';
 import { Provider } from 'react-redux';
 import store from './Redux/store.js';
+import Chat from './components/Chat/Chat.jsx';
 
 const router = createBrowserRouter([
   {
@@ -55,6 +56,7 @@ const router = createBrowserRouter([
       </ProtectedRoute>
     ),
   },
+  { path: 'chat', element: <Chat /> },
   {
     path: '*',
     element: <NotFound />,

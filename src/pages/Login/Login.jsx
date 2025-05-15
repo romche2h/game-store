@@ -5,6 +5,7 @@ import Button from '../../components/Button/Button';
 import InputField from '../../components/InputField/InputField';
 import BackgroundVideoAuth from '../../components/BackgroundVideoAuth/BackgroundVideo';
 import axios from 'axios';
+import { jwtDecode } from 'jwt-decode';
 import { useDispatch } from 'react-redux';
 import { fetchUserTeams } from '../../Redux/Features/team/teamThunks';
 
@@ -33,6 +34,8 @@ function Login() {
     const token = url.searchParams.get('token');
     if (token) {
       localStorage.setItem('token', token);
+      const decoded = jwtDecode(token);
+      localStorage.setItem('username', decoded.username);
       await dispatch(fetchUserTeams());
       navigate('/');
     } else {
@@ -58,14 +61,17 @@ function Login() {
         headers: { 'Content-Type': 'application/json' },
       });
       if (response.data.token) {
-        localStorage.setItem('token', response.data.token);
+        const token = response.data.token;
+        localStorage.setItem('token', token);
+        const decoded = jwtDecode(token);
+        localStorage.setItem('username', decoded.username);
         await dispatch(fetchUserTeams());
+        navigate('/');
       }
-      setMessage(response.data.message);
+      setMessage(response.data.message || 'Успешный вход');
       setForm({ email: '', password: '' });
-      navigate('/');
     } catch (error) {
-      setMessage(error.response?.data?.error || 'Ошибка');
+      setMessage(error.response?.data?.error || 'Ошибка входа');
     } finally {
       setLoading(false);
     }
@@ -75,7 +81,7 @@ function Login() {
     <div className={styles.login}>
       <Link to='/'>
         <svg className={styles.logo}>
-          <use href='src/icons/symbol.svg#icon-gaming'></use>
+          <use href='src/icons/symbol.svg#icon-gaming' />
         </svg>
       </Link>
       <BackgroundVideoAuth
@@ -118,7 +124,9 @@ function Login() {
       >
         Войти при помощи Steam
       </Button>
-      {isSteamLogin && message && <div>{message}</div>}
+      {isSteamLogin && message && (
+        <div className={styles.message}>{message}</div>
+      )}
       <div className={styles.links}>
         <p>Нет аккаунта?</p>
         <Link to='/register' className={styles.link}>

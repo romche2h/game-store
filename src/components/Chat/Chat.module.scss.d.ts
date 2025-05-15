@@ -1,0 +1,26 @@
+declare const classNames: {
+  readonly titleFour: "titleFour";
+  readonly titleOne: "titleOne";
+  readonly titleTwo: "titleTwo";
+  readonly titleThree: "titleThree";
+  readonly contant: "contant";
+  readonly title: "title";
+  readonly svg: "svg";
+  readonly selectAndInput: "selectAndInput";
+  readonly highlightedText: "highlightedText";
+  readonly container: "container";
+  readonly header: "header";
+  readonly name: "name";
+  readonly logoGameClub: "logoGameClub";
+  readonly btnCross: "btnCross";
+  readonly logoCross: "logoCross";
+  readonly messages: "messages";
+  readonly messageUserName: "messageUserName";
+  readonly messageText: "messageText";
+  readonly form: "form";
+  readonly lowerFooter: "lowerFooter";
+  readonly input: "input";
+  readonly btnSent: "btnSent";
+  readonly logoSent: "logoSent";
+};
+export = classNames;

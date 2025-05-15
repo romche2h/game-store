@@ -1,0 +1,84 @@
+@use '../../styles/variables.scss' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  color: black;
+  min-height: 100vh;
+  width: 35rem;
+  border: 0.3rem solid $color-green-light;
+  margin-left: auto;
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: solid $color-green-light;
+    color: $color-green-light;
+    background-color: $color-blue-dark;
+    .name {
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+    }
+    .logoGameClub {
+      margin-left: 6rem;
+      width: 7rem;
+      height: 3rem;
+    }
+    .btnCross {
+      border: none;
+      background: none;
+    }
+    .logoCross {
+      height: 4.5rem;
+      width: 4.5rem;
+      color: $color-green-light;
+    }
+  }
+  .messages {
+    padding: 2rem;
+    flex: 1;
+    overflow-y: auto;
+    background-color: $color-blue-dark;
+    color: $color-green-light;
+    .messageUserName {
+      margin-left: 2rem;
+    }
+    .messageText {
+      padding: 1rem;
+      background: $color-green-dark;
+      border-radius: 1.5rem;
+    }
+  }
+  .form {
+    border-top: solid $color-green-light;
+
+    .lowerFooter {
+      display: flex;
+      gap: 1rem;
+      justify-content: space-between;
+      padding: 1rem;
+      background-color: $color-blue-dark;
+    }
+    .input {
+      border-radius: 1.5rem;
+      padding: 1rem;
+      width: 100%;
+      border-color: $color-green-light;
+    }
+    .btnSent {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 6rem;
+      padding: 0;
+      height: 4rem;
+    }
+    .logoSent {
+      color: $color-blue-dark;
+      width: 3rem;
+      height: 3rem;
+    }
+  }
+}

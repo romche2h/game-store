@@ -9,5 +9,6 @@ declare const classNames: {
   readonly selectAndInput: "selectAndInput";
   readonly highlightedText: "highlightedText";
   readonly profileAndLogout: "profileAndLogout";
+  readonly userName: "userName";
 };
 export = classNames;
