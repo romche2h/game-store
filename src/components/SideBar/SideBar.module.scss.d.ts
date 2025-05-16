@@ -14,5 +14,8 @@ declare const classNames: {
   readonly menuActive: "menuActive";
   readonly menuContent: "menuContent";
   readonly link: "link";
+  readonly chatPanel: "chatPanel";
+  readonly chatOpen: "chatOpen";
+  readonly chat: "chat";
 };
 export = classNames;

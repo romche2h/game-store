@@ -67,3 +67,25 @@
     }
   }
 }
+
+.chatPanel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  box-shadow: -2px 0 10px $color-green-light;
+  transform: translateX(100%);
+  transition: transform 0.5s ease-in-out;
+  z-index: 1000;
+}
+
+.chatOpen {
+  transform: translateX(0%);
+}
+
+.chat {
+  width: 10rem;
+  height: 10rem;
+  position: fixed;
+  top: 40rem;
+  right: 1rem;
+}
