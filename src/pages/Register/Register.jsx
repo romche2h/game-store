@@ -26,7 +26,6 @@ function Register() {
     e.preventDefault();
     setLoading(true);
     setMessage('');
-    console.log('Отправляем на сервер:', form);
 
     if (!form.username || !form.email || !form.password) {
       setMessage('Все поля должны заполняться!');
@@ -103,6 +102,7 @@ function Register() {
           value={form.username}
           label='Ваше имя'
           placeholder='Имя'
+          maxLength={15}
           className={styles.inputpass}
           onChange={handleChange}
         />

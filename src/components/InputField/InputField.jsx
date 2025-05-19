@@ -10,6 +10,7 @@ function InputField({
   onChange,
   children,
   autoFocus,
+  maxLength,
 }) {
   return (
     <div className={styles.field}>
@@ -24,6 +25,7 @@ function InputField({
           onChange={onChange}
           value={value}
           autoFocus={autoFocus}
+          maxLength={maxLength}
         />
         {children}
       </div>
