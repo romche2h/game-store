@@ -133,7 +133,9 @@ function CreateTeam() {
         <Button>Создать команду</Button>
       </form>
       <Button className={styles.back} onClick={homePage}>
-        {'<---'}
+        <svg className={styles.logoArrowBack}>
+          <use xlinkHref='src/icons/symbol.svg#arrow-back'></use>
+        </svg>
       </Button>
 
       <div>{message}</div>

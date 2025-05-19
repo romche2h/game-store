@@ -35,8 +35,8 @@ function ProfileAndLogout() {
       <div className={styles.profileAndLogout}>
         <Button onClick={buttonProfile}>Мой профиль</Button>
         <Button onClick={handleLogout}>Выход</Button>
-        <div className={styles.userName}>Привет, {userName}!</div>
       </div>
+      <div className={styles.userName}>Привет, {userName}</div>
     </>
   );
 }

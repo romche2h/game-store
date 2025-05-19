@@ -37,5 +37,6 @@
 <symbol viewBox="0 0 24 24" id="cross"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m8 8l4 4m0 0l4 4m-4-4l4-4m-4 4l-4 4"></path></symbol>
 <symbol viewBox="0 0 24 24" id="sent"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m9.583 17.5l4.858-4.859a.2.2 0 0 0 0-.282L9.583 7.5"></path></symbol>
 </defs>
+<symbol viewBox="0 0 24 24" id="arrow-back"><path fill="currentColor" d="m7.825 13l4.9 4.9q.3.3.288.7t-.313.7q-.3.275-.7.288t-.7-.288l-6.6-6.6q-.15-.15-.213-.325T4.426 12t.063-.375t.212-.325l6.6-6.6q.275-.275.688-.275t.712.275q.3.3.3.713t-.3.712L7.825 11H19q.425 0 .713.288T20 12t-.288.713T19 13z"></path></symbol>
 </svg>
 

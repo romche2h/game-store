@@ -12,5 +12,6 @@ declare const classNames: {
   readonly header: "header";
   readonly teamForm: "teamForm";
   readonly back: "back";
+  readonly logoArrowBack: "logoArrowBack";
 };
 export = classNames;
