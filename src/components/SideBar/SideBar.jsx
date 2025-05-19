@@ -18,8 +18,8 @@ function SideBar() {
 
       if (mustOpen) {
         const ws = new WebSocket('ws://localhost:5000');
-        ws.onopen = () => console.log('chat rabotaet');
-        ws.onclose = () => console.log('chat zakruli');
+        ws.onopen;
+        ws.onclose;
         setSocket(ws);
       } else {
         if (socket) {

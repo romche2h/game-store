@@ -10,17 +10,14 @@ const teamSlice = createSlice({
   reducers: {
     addTeam: (state, action) => {
       state.teams.push(action.payload);
-      console.log('команда добавлена!', action.payload);
     },
     removeTeam: (state, action) => {
       state.teams = state.teams.filter(
         (team) => team.nameTeam !== action.payload
       );
-      console.log('команда удалина с id:', action.payload);
     },
     setTeam: (state, action) => {
       state.teams = action.payload;
-      console.log('команда добавлена в хранилище!', action.payload);
     },
   },
 });

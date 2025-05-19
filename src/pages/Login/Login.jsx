@@ -9,6 +9,11 @@ import { jwtDecode } from 'jwt-decode';
 import { useDispatch } from 'react-redux';
 import { fetchUserTeams } from '../../Redux/Features/team/teamThunks';
 
+const icons = {
+  show: 'src/icons/showpass.svg',
+  hide: 'src/icons/iconpass.svg',
+};
+
 function Login() {
   const [showPass, setShowPass] = useState(false);
   const [form, setForm] = useState({ email: '', password: '' });
@@ -18,15 +23,24 @@ function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const icons = {
-    show: 'src/icons/showpass.svg',
-    hide: 'src/icons/iconpass.svg',
+  const restrictEmail = (value) => {
+    return value.replace(/[^a-zA-Z0-9@._%+-]/g, '');
+  };
+
+  const restrictPassword = (value) => {
+    return value.replace(/[^a-zA-Z0-9!@#$%^&*]/g, '');
   };
 
   const toggleShowPass = () => setShowPass((prev) => !prev);
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    let { name, value } = e.target;
+    if (name === 'email') {
+      value = restrictEmail(value);
+    } else if (name === 'password') {
+      value = restrictPassword(value);
+    }
+    setForm({ ...form, [name]: value });
   };
 
   const handleSteamLogin = async () => {
@@ -56,6 +70,14 @@ function Login() {
       setLoading(false);
       return;
     }
+
+    const email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email.test(form.email)) {
+      setMessage('Не корректный email или пароль');
+      setLoading(false);
+      return;
+    }
+
     try {
       const response = await axios.post('http://localhost:5000/login', form, {
         headers: { 'Content-Type': 'application/json' },

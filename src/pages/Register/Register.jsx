@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styles from './Register.module.scss';
 import Button from '../../components/Button/Button';
 import BackgroundVideoAuth from '../../components/BackgroundVideoAuth/BackgroundVideo';
@@ -17,8 +17,30 @@ function Register() {
   const [loading, setLoading] = useState(false);
   const [showPass, setShowPass] = useState(false);
 
+  const restrictUsername = (value) => {
+    return value.replace(/[^a-zA-Z0-9]/g, '');
+  };
+
+  const restrictEmail = (value) => {
+    return value.replace(/[^a-zA-Z0-9@._%+-]/g, '');
+  };
+
+  const restrictPassword = (value) => {
+    return value.replace(/[^a-zA-Z0-9!@#$%^&*]/g, '');
+  };
+
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    let { name, value } = e.target;
+
+    if (name === 'username') {
+      value = restrictUsername(value);
+    } else if (name === 'email') {
+      value = restrictEmail(value);
+    } else if (name === 'password') {
+      value = restrictPassword(value);
+    }
+
+    setForm({ ...form, [name]: value });
   };
 
   const navigate = useNavigate();
@@ -34,6 +56,13 @@ function Register() {
       return;
     }
 
+    const email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email.test(form.email)) {
+      setMessage('Введите корректный маил');
+      setLoading(false);
+      return;
+    }
+
     try {
       const response = await axios.post(
         'http://localhost:5000/register',
@@ -45,7 +74,6 @@ function Register() {
 
       setMessage(response.data.message);
       setForm({ username: '', email: '', password: '' });
-      console.log('Ответ от сервера:', response.data);
       navigate('/login');
     } catch (error) {
       console.error('Ошибка запроса:', error.response || error.message);
